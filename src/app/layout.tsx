@@ -10,7 +10,7 @@ export default async function RootLayout({
 }>) {
   const user = await getUser();
   const plainUser = {
-    ...user.toObject(),
+    ...user,
     _id: user._id.toString(),
   };
   return (
