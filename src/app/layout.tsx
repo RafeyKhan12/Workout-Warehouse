@@ -10,9 +10,9 @@ export default async function RootLayout({
 }>) {
   const user = await getUser();
   const plainUser = user ? {
-    ...user,
-    _id: user._id.toString(),
-  } : null;
+  ...JSON.parse(JSON.stringify(user)),
+  _id: user._id.toString(),
+} : null;
   return (
     <html lang="en">
       <body>
