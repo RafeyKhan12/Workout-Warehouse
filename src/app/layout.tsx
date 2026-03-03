@@ -9,7 +9,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const user = await getUser();
-  const plainUser = {
+  const plainUser = user ? {
     ...user,
     _id: user._id.toString(),
   };

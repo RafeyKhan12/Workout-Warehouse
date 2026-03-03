@@ -8,7 +8,6 @@ import UserNav from "./UserNav";
 
 export default function Navbar({ user }: { user: any }) {
   const [isOpen, setIsOpen] = useState(false);
-  if(!user) return null;
   return (
     <nav className="bg-zinc-950 border-b border-zinc-800 text-white px-6 lg:px-20 py-4">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
