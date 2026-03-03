@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "src/models/user.model.js", "src/app/orders/page.tss"  ],
   "exclude": ["node_modules"]
 }
