@@ -1,17 +1,20 @@
 "use client";
 
 import { getAddresses } from "@/features/address/addressSlice";
+import { cartClear } from "@/features/cart/cartSlice";
 import { addOrder } from "@/features/orders/orderSlice";
 import { useAppSelector } from "@/store/hooks";
 import { AppDispatch } from "@/store/store";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 export default function PlaceOrderBtn({ items }: { items: any[] }) {
   const { products } = useAppSelector((state) => state.product);
   const { addresses } = useAppSelector((state) => state.address);
+  
   const dispatch = useDispatch<AppDispatch>();
-
+  const router = useRouter();
   useEffect(() => {
     dispatch(getAddresses());
   }, [dispatch]);
@@ -27,6 +30,7 @@ export default function PlaceOrderBtn({ items }: { items: any[] }) {
     const prod = products.find((p) => p._id === c.product);
     return sum + (prod?.price || 0) * c.quantity;
   }, 0);
+  const cartId = items.length ? items[0]?._id : null;
 
   const [data, setData] = useState<createPayload>({
     items: [
@@ -39,7 +43,8 @@ export default function PlaceOrderBtn({ items }: { items: any[] }) {
     paymentType: "online",
   });
 
-  const handlePay = () => {
+  const handlePay = async () => {
+    if(cartId) await dispatch(cartClear(cartId));
     const payload = {
       ...data,
       items: cart.items.map((c: any) => ({
@@ -48,6 +53,7 @@ export default function PlaceOrderBtn({ items }: { items: any[] }) {
       }))
     }
     dispatch(addOrder(payload));
+    router.push("/orders");
   };
   return (
   <div className="space-y-6">

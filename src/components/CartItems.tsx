@@ -45,24 +45,11 @@ export default function CartItems() {
     return <LoadingSpinner />;
   }
 
-  if (error) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-zinc-950 px-6">
-        <div className="bg-zinc-900 border border-red-500/30 rounded-2xl p-8 text-center max-w-md w-full">
-          <h2 className="text-xl font-semibold text-red-400 mb-3">
-            Something Went Wrong
-          </h2>
-          <p className="text-zinc-400 text-sm">{error}</p>
-        </div>
-      </div>
-    );
-  }
-
   if (!cartItems.length) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-zinc-950 px-6">
         <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-10 text-center max-w-md w-full">
-          <h2 className="text-2xl text-white font-bold mb-3">Your Cart is Empty</h2>
+          <h2 className="text-2xl text-white  font-bold mb-3">Your Cart is Empty</h2>
           <p className="text-zinc-400 text-sm mb-6">
             Looks like you haven’t added anything yet.
           </p>

@@ -41,6 +41,7 @@ export async function POST(req: NextRequest){
                     paymentStatus: "paid"
                 }
             )
+            
         }
         if(event.type === "payment_intent.payment_failed"){
             const intent = event.data.object;
