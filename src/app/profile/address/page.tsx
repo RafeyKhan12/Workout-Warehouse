@@ -23,6 +23,10 @@ interface UpdatePayload {
   isDefault?: boolean;
 }
 
+export const metadata = {
+  title: "Address"
+}
+
 export default function Page() {
   const { addresses, loading } = useAppSelector((state) => state.address);
   const dispatch = useDispatch<AppDispatch>();

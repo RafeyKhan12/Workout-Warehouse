@@ -1,5 +1,9 @@
 import Link from "next/link";
 
+export const metadata = {
+  title: "Payment Success"
+}
+
 export default function PaymentSuccess() {
   return (
     <div className="min-h-screen bg-zinc-950 text-white flex items-center justify-center px-6">

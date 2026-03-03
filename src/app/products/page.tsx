@@ -4,6 +4,10 @@ import { getProducts } from "@/helpers/getProducts";
 import Image from "next/image";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Products"
+}
+
 export default async function Page({
   searchParams,
 }: {

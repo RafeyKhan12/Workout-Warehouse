@@ -3,6 +3,11 @@ import "./globals.css";
 import Navbar from "@/components/Navbar"
 import { getUser } from "@/helpers/getCurrentUser";
 
+export const metadata = {
+  title: "Workout Warehouse",
+  template: "%s | Workout Warehouse"
+}
+
 export default async function RootLayout({
   children,
 }: Readonly<{
