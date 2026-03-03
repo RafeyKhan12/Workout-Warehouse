@@ -12,7 +12,7 @@ export default async function RootLayout({
   const plainUser = user ? {
     ...user,
     _id: user._id.toString(),
-  };
+  } : null;
   return (
     <html lang="en">
       <body>
